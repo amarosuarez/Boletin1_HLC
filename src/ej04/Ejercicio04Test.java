@@ -1,11 +1,27 @@
 package ej04;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 class Ejercicio04Test {
 
+	@Test
+	void testEsPrimo0() {
+		boolean res = Ejercicio04.esPrimo(0);
+		
+		assertFalse(res);
+	}
+	
+	@Test
+	void testEsPrimo1() {
+		boolean res = Ejercicio04.esPrimo(1);
+		
+		assertFalse(res);
+	}
+	
 	@Test
 	void testEsPrimo2() {
 		boolean res = Ejercicio04.esPrimo(2);
@@ -28,10 +44,17 @@ class Ejercicio04Test {
 	}
 	
 	@Test
+	void testEsPrimo9() {
+		boolean res = Ejercicio04.esPrimo(15);
+		
+		assertFalse(res);
+	}
+	
+	@Test
 	void testEsPrimo15() {
 		boolean res = Ejercicio04.esPrimo(15);
 		
-		assertTrue(res);
+		assertFalse(res);
 	}
 
 }

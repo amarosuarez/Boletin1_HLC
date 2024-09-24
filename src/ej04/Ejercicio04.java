@@ -3,10 +3,15 @@ package ej04;
 public class Ejercicio04 {
 	
 	public static boolean esPrimo(int num) {
-		boolean res = false;
+		boolean res = num > 1;
+		int i = 2;
 		
-		if (num == 2 || num%2 == 1) {
-			res = true;
+		while (i <= Math.sqrt(num) && res) {
+			if (num % i == 0) {
+				res = false;
+			}
+			
+			i++;
 		}
 		
 		return res;
