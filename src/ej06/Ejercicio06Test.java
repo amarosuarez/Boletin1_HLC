@@ -2,17 +2,14 @@ package ej06;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.stream.Stream;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.rules.ExpectedException;
-
-import ej01.Ejercicio01;
 
 class Ejercicio06Test {
 
@@ -25,7 +22,7 @@ class Ejercicio06Test {
 	
 	@ParameterizedTest
 	@MethodSource("datos")
-	void testCalculadora(double num1, double num2, int op, double resEsperado) {
+	void testCalculadora(double num1, double num2, int op, double resEsperado) throws Exception {
 		double resObtenido = Ejercicio06.calculadora(num1, num2, op);
 		
 		assertEquals(resEsperado, resObtenido);
@@ -93,11 +90,18 @@ class Ejercicio06Test {
 //	}
 	
     @Test
-	void testCalculadora10_0_D() {
-    	ArithmeticException exception = assertThrows(ArithmeticException.class, () ->
-        Ejercicio06.calculadora(1, 0, 4));
-
-    	assertEquals("No puedes dividir por 0", exception.getMessage());
+	void testCalculadora10_0_D() throws Exception {
+    	double res = Ejercicio06.calculadora(10, 0, 4);
+    	
+    	assertTrue(Double.isInfinite(res));
 	}
+    
+    @Test
+    void testCalculadoraNoOption() throws Exception {
+    	Exception exception = assertThrows(Exception.class, () ->
+        Ejercicio06.calculadora(1, 0, 8));
+
+    	assertEquals("Esa opción no existe", exception.getMessage());
+    }
 
 }
