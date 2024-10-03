@@ -24,8 +24,8 @@ public class Ejercicio05 {
 		// Ejemplo 101
 		while (num > 0) {
 			// Cojo el último 1
-			// Coje el 0
-			// Coje 1
+			// Coge el 0
+			// Coge 1
 			ultimo = num%10;
 			
 			// 0 * 10 + 1 = 1
